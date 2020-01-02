@@ -72,7 +72,8 @@ public final class Sorting {
 		if (left + CUTOFF <= right) {
 			int pivot = median3(a, left, right);
 
-			int i = left, j = right - 1;
+			// int i = left, j = right - 1;
+			int i = left, j = right;
 			for (;;) {
 				while (a[++i] < pivot) {
 				}
