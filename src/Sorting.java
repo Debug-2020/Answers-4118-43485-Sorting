@@ -40,7 +40,7 @@ public final class Sorting {
 		quicksort(a, 0, a.length - 1);
 	}
 
-	private static final int CUTOFF = 10;
+	private static final int CUTOFF = 100;
 
 	public static final void swapReferences(Object[] a, int index1, int index2) {
 		Object tmp = a[index1];
@@ -64,16 +64,16 @@ public final class Sorting {
 			swap(a, center, right);
 
 		// Place pivot at position right - 1
-		swap(a, center, right - 1);
-		return a[right - 1];
+		swap(a, center, right-1);
+		return a[0];
 	}
 
 	private static void quicksort(int[] a, int left, int right) {
 		if (left + CUTOFF <= right) {
-			int pivot = median3(a, left, right);
+			int pivot = a[left];
 
 			// int i = left, j = right - 1;
-			int i = left, j = right;
+			int i = left+1, j = right;
 			for (;;) {
 				while (a[++i] < pivot) {
 				}
@@ -85,7 +85,7 @@ public final class Sorting {
 					break;
 			}
 
-			swap(a, i, right - 1); // Restore pivot
+			swap(a, i, left+1); // Restore pivot
 
 			quicksort(a, left, i - 1); // Sort small elements
 			quicksort(a, i + 1, right); // Sort large elements
