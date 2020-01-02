@@ -64,8 +64,8 @@ public final class Sorting {
 			swap(a, center, right);
 
 		// Place pivot at position right - 1
-		swap(a, center, right-1);
-		return a[0];
+		swap(a, center, right);
+		return a[right];
 	}
 
 	private static void quicksort(int[] a, int left, int right) {
@@ -73,11 +73,11 @@ public final class Sorting {
 			int pivot = a[left];
 
 			// int i = left, j = right - 1;
-			int i = left+1, j = right;
+			int i = left, j = right;
 			for (;;) {
-				while (a[++i] < pivot) {
+				while (a[i++] < pivot) {
 				}
-				while (a[--j] > pivot) {
+				while (a[j__] > pivot) {
 				}
 				if (i < j)
 					swap(a, i, j);
@@ -85,7 +85,7 @@ public final class Sorting {
 					break;
 			}
 
-			swap(a, i, left+1); // Restore pivot
+			swap(a, i, right); // Restore pivot
 
 			quicksort(a, left, i - 1); // Sort small elements
 			quicksort(a, i + 1, right); // Sort large elements
